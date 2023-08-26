@@ -24,26 +24,61 @@
     <meta name="msapplication-TileColor" content="#EA906C">
     <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
     <meta name="theme-color" content="#EA906C">
-    <!-- <link rel="stylesheet" href="/css/index.css">
-    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/index.css">
+    <!-- <link rel="stylesheet" href="/css/all.css">
     <link rel="stylesheet" href="/css/org-colors.css"> -->
     <meta name="apple-mobile-web-app-capable" content="yes">
 </head>
 
 <body>
-    <div id="content"></div>
+    <div id="holder">
+        <div id="content"></div>
+        <div id="indexOfArticles"></div>
+    </div>
     <script type="text/javascript" src="dist/purify.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        // document.getElementById('content').innerHTML =
-        //     DOMPurify.sanitize(marked.parse('# Marked in the browser\n\nRendered by **marked**.'));
-        // just like above, but now pulling from the path /md/index.md
-        const markdownData = fetch('https://content.peterhindes.com/md/index.md')
-            .then(response => response.text())
+        const contentUri = 'http://127.0.0.1:8080/';
+        // const contentUri = 'https://content.peterhindes.com/';
+    </script>
+    <script>
+        // get the https://content.peterhindes.com/list.json file
+        // create a variable to hold the document elements, after we have them all we will sort them by id
+        var elements = [];
+        var indexes = [];
+        const listData = fetch(contentUri + 'list.json')
+            .then(response => response.json())
             .then((data) => {
-                document.getElementById('content').innerHTML =
-                    DOMPurify.sanitize(marked.parse(data));
+                // loop through the list
+                var fetches = [];
+                for (let i = 0; i < data.length; i++) {
+                    // create a new element
+                    // get the markdown file
+                    fetches.push( fetch(contentUri + data[i])
+                        .then(response => response.text())
+                        .then((dataMD) => {
+                            const newElement = document.createElement('div');
+                            // set the innerHTML to the markdown parsed data
+                            newElement.innerHTML = marked.parse(dataMD);
+                            // add the class of article to the new element
+                            newElement.classList.add('article');
+                            // add the id of the file name to the new element
+                            newElement.id = data[i].replace('.md', '');
+                            console.log(data[i]);
+                            // add the element to the content div
+                            elements.push(newElement);
+
+                            // add the article to the index
+                            const newArticle = document.createElement('a');
+                            newArticle.href = '#' + data[i].replace('.md', '');
+                            newArticle.innerHTML = data[i].replace('.md', '');
+                            indexes.push(newArticle);
+                        }));
+                }
+                return fetches;
             });
+        // once the list is done loading
+        listData.resolve
     </script>
 </body>
 
