@@ -38,7 +38,7 @@
         // document.getElementById('content').innerHTML =
         //     DOMPurify.sanitize(marked.parse('# Marked in the browser\n\nRendered by **marked**.'));
         // just like above, but now pulling from the path /md/index.md
-        const markdownData = fetch('https://raw.githubusercontent.com/PeterHindes/peterhindes.com/markdown/md/index.md')
+        const markdownData = fetch('https://content.peterhindes.com/md/index.md')
             .then(response => response.text())
             .then((data) => {
                 document.getElementById('content').innerHTML =
