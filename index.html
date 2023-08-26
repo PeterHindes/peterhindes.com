@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personal Page | Peter Hindes</title>
+    <meta name="description" content="Peter Hindes personal blog!">
+    <meta name="keywords" content="Peter, Hindes, Peter Hindes, Blog, Tech, Journal, Ideas, Personal Page, Web 1.0">
+    <meta name="author" content="Peter Hindes">
+    <link rel="apple-touch-icon" sizes="57x57" href="favico/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="favico/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="favico/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="favico/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="favico/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="favico/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="favico/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="favico/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="favico/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="favico/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="favico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="favico/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="favico/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#EA906C">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#EA906C">
+    <!-- <link rel="stylesheet" href="/css/index.css">
+    <link rel="stylesheet" href="/css/all.css">
+    <link rel="stylesheet" href="/css/org-colors.css"> -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+<body>
+    <div id="content"></div>
+    <script type="text/javascript" src="dist/purify.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // document.getElementById('content').innerHTML =
+        //     DOMPurify.sanitize(marked.parse('# Marked in the browser\n\nRendered by **marked**.'));
+        // just like above, but now pulling from the path /md/index.md
+        const markdownData = fetch('/md/index.md')
+            .then(response => response.text())
+            .then((data) => {
+                document.getElementById('content').innerHTML =
+                    DOMPurify.sanitize(marked.parse(data));
+            });
+    </script>
+</body>
+
+</html>
