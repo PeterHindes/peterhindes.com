@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Peter Hindes - Interactive Portfolio</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Star background canvas -->
+    <canvas id="parallax-stars" class="stars"></canvas>
+    
+    <header>
+        <h1>Peter Hindes</h1>
+        <p class="subtitle">Software Developer & Space Explorer</p>
+    </header>
+    
+    <div class="container">
+        <div id="canvas-container">
+            <canvas id="three-canvas"></canvas>
+        </div>
+        
+        <section>
+            <h2>Cosmic Projects</h2>
+            <div class="projects">
+                <div class="project-card">
+                    <h3 class="project-title">Galactic Data Visualization</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">D3.js</span>
+                        <span class="tech-tag">SVG</span>
+                    </div>
+                    <p class="project-description">
+                        Created interactive data visualizations for complex datasets, enabling users to explore and understand the patterns of the universe through intuitive interface elements.
+                    </p>
+                    <a href="#" class="project-link">Launch Project →</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">Interstellar Collaboration Platform</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Node.js</span>
+                        <span class="tech-tag">Socket.io</span>
+                        <span class="tech-tag">MongoDB</span>
+                    </div>
+                    <p class="project-description">
+                        Built a realtime document collaboration platform with concurrent editing capabilities, version history, and automatic conflict resolution across the galaxies.
+                    </p>
+                    <a href="#" class="project-link">Launch Project →</a>
+                </div>
+                
+                <div class="project-card">
+                    <h3 class="project-title">3D Space Portfolio</h3>
+                    <div class="project-tech">
+                        <span class="tech-tag">Three.js</span>
+                        <span class="tech-tag">WebGL</span>
+                        <span class="tech-tag">JavaScript</span>
+                    </div>
+                    <p class="project-description">
+                        Designed and implemented an interactive 3D portfolio website featuring custom shaders, celestial animations, and interactive elements to showcase creative work from across the cosmos.
+                    </p>
+                    <a href="#" class="project-link">Launch Project →</a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>© 2023 Peter Hindes. All rights reserved across the universe.</p>
+        <div class="social-links">
+            <a href="https://github.com/peterhindes" target="_blank">GitHub</a>
+            <a href="https://linkedin.com/in/peterhindes" target="_blank">LinkedIn</a>
+            <a href="mailto:contact@peterhindes.com">Send Signal</a>
+        </div>
+    </footer>
+    
+    <!-- Astronaut overlay container -->
+    <div id="astronaut-container">
+        <canvas id="astronaut-canvas"></canvas>
+    </div>
+    
+    <!-- External libraries -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+    
+    <!-- Application scripts -->
+    <script src="js/shaders/parallax-shaders.js"></script>
+    <script src="js/config.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/stars.js"></script>
+    <script src="js/astronaut.js"></script>
+    <script src="js/background.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>
