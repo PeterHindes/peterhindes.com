@@ -53,43 +53,50 @@ const ParallaxShaders = {
         for (int i = 1; i <= 10; i++) {
             float depth = float(i) / 10.0;
             float scale = mix(10.0, 0.5, depth); // larger stars in background
-            float brightness = mix(0.3, 1.0, depth); // brighter stars in foreground
             
             // Apply parallax effect based on layer depth
-            vec2 offsetWithParallax = offset;
-            offsetWithParallax.x += mouseEffect.x * depth * 0.1; // mouse x parallax
-            offsetWithParallax.y += mouseEffect.y * depth * 0.1; // mouse y parallax
-            offsetWithParallax.y -= scroll * depth * 0.2; // scroll parallax
+            vec2 layerOffset = offset;
             
-            // Scale based on depth
-            vec2 scaledUV = offsetWithParallax * scale + center;
+            // Mouse parallax
+            layerOffset += mouseEffect * (depth * 0.05);
             
-            // Generate stars in this layer
-            for (int s = 0; s < 5; s++) { // 5 stars per layer
-                // Pseudo-random position for this star
-                float seedX = hash(vec2(float(s) * 0.45 + depth * 2.0, float(i) * 0.16));
-                float seedY = hash(vec2(float(s) * 0.33 + depth, float(i) * 0.71));
-                vec2 starPos = vec2(seedX, seedY) * 2.0 - 1.0; // -1 to 1
+            // Scroll parallax
+            layerOffset.y += scroll * depth * 0.5;
+            
+            // Calculate star coordinates
+            vec2 starCoord = layerOffset * scale;
+            
+            // Apply time-based rotation to each layer
+            float rotSpeed = 0.01 * (1.0 - depth);
+            float rotation = time * rotSpeed;
+            float s = sin(rotation);
+            float c = cos(rotation);
+            vec2 rotatedCoord = vec2(
+                starCoord.x * c - starCoord.y * s,
+                starCoord.x * s + starCoord.y * c
+            );
+            
+            // Create grid of stars
+            vec2 grid = fract(rotatedCoord * 10.0) - 0.5;
+            vec2 id = floor(rotatedCoord * 10.0);
+            float seed = hash(id);
+            
+            // Only render some of the grid points as stars
+            if (seed > 0.65) {
+                float brightness = star(grid, seed) * (1.0 - depth * 0.8);
                 
-                // Calculate star position with parallax
-                vec2 starOffset = scaledUV - starPos;
-                
-                // Calculate star brightness with depth falloff
-                float starVal = star(starOffset, seedX + seedY) * brightness;
-                
-                // Star color (more blue for distant stars, more white for close stars)
+                // Color stars based on seed
                 vec3 starColor = mix(
-                    vec3(0.6, 0.8, 1.0), // Distant stars (blue)
-                    vec3(1.0, 1.0, 1.0), // Close stars (white)
-                    depth
+                    vec3(0.8, 0.8, 1.0), // Blue-white
+                    vec3(1.0, 0.8, 0.6), // Yellow-white
+                    hash(id + 4.321)
                 );
                 
-                finalColor.rgb += starVal * starColor;
+                finalColor += vec4(starColor * brightness, brightness);
             }
         }
         
-        // Output the final color with premultiplied alpha
-        gl_FragColor = vec4(finalColor.rgb, 1.0);
+        gl_FragColor = finalColor;
     }
     `
 };

@@ -30,7 +30,7 @@ class StarBackground {
     }
     
     createShaderMaterial() {
-        // Create uniforms to pass to the shader
+        // Create uniforms to pass to the shader - use names that match the shader
         this.uniforms = {
             time: { value: 0 },
             resolution: { value: new THREE.Vector2(this.windowWidth, this.windowHeight) },
@@ -45,6 +45,9 @@ class StarBackground {
             fragmentShader: ParallaxShaders.fragmentShader,
             transparent: true
         });
+        
+        // Make the material globally accessible for other components
+        window.starShaderMaterial = this.material;
     }
     
     createStarField() {
@@ -63,7 +66,7 @@ class StarBackground {
         
         // Update shader uniforms on scroll
         window.addEventListener('scroll', () => {
-            const scrollMax = this.documentHeight - this.windowHeight;
+            const scrollMax = Math.max(this.documentHeight - this.windowHeight, 1);
             this.uniforms.scroll.value = window.scrollY / scrollMax;
         });
         
@@ -80,11 +83,15 @@ class StarBackground {
     
     animate() {
         requestAnimationFrame(() => this.animate());
-        this.uniforms.time.value += CONFIG.stars.updateSpeed;
+        
+        // Update time uniform for animation
+        this.uniforms.time.value = performance.now() * 0.001;
+        
         this.renderer.render(this.scene, this.camera);
     }
     
     init() {
+        console.log('Initializing star background');
         this.animate();
     }
 }

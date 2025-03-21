@@ -1,0 +1,130 @@
+{
+    "projects": [
+      {
+        "id": 1,
+        "title": "LineOnLine.app",
+        "description": "A new way to wait in line without standing around. Current project.",
+        "modelType": "display",
+        "image": "/projects/lineonline.png",
+        "tags": ["CSS", "Cloudlfare Workers", "Cloudflare D1", "Sqlite", "JavaScript", "WebCrypto"],
+        "link": "https://lineonline.app"
+      },
+      {
+        "id": 2,
+        "title": "MathCrowPad",
+        "description": "A number pad for chemistry and math.",
+        "modelType": "computer",
+        "image": "/projects/mathcrowpad.png",
+        "tags": ["React", "JavaScript", "HTML", "CSS"],
+        "link": "https://github.com/PeterHindes/MathCrowPad"
+      }
+    ],
+    "jobs": [
+      {
+        "id": 101,
+        "title": "DLA Research Assistant",
+        "company": "CU Boulder Genetic Logic Lab",
+        "period": "2024 - Present",
+        "description": "Research Assistant on the Synbiohub.org team",
+        "modelType": "computer",
+        "tags": ["SynBioHub", "JavaScript", "React", "GraphQL"]
+      },
+      {
+        "id": 102,
+        "title": "Computer Recycling Lead",
+        "company": "Boulder Valley Waldorf School",
+        "period": "2020 - 2024",
+        "description": "Lead the computer recycling program",
+        "modelType": "computer",
+        "tags": ["Recycling", "Management", "Hardware"]
+      },
+      {
+        "id": 103,
+        "title": "Volunteer CAD Designer",
+        "company": "FIRST Robotics",
+        "period": "2017 - 2018",
+        "description": "Volunteer CAD Designer",
+        "modelType": "rocket",
+        "tags": ["CAD", "Design", "Robotics"]
+      }
+    ],
+    "education": [
+      {
+        "id": 201,
+        "title": "Electrical & Computer Engineering B.S.",
+        "school": "University of Colorado Boulder",
+        "period": "2024 - 2027",
+        "description": "Currently pursuing a Bachelor of Science in Electrical & Computer Engineering",
+        "relevantCoursework": [
+          "Data Structures and Algorithms",
+          "Computer Architecture",
+          "Signals and Systems",
+          "Electromagnetics",
+          "Embedded Systems"
+        ],
+        "tags": ["Electrical Engineering", "Computer Engineering"]
+      },
+      {
+        "id": 202,
+        "title": "Physics A.S.",
+        "school": "Front Range Community College",
+        "period": "2021 - 2025",
+        "description": "Associate of Science in Physics",
+        "relevantCoursework": [
+          "Calculus-Based Physics I & II",
+          "Differential Equations",
+          "Linear Algebra",
+          "Thermodynamics",
+          "Optics"
+        ],
+        "tags": ["Physics", "Mathematics"]
+      },
+      {
+        "id": 203,
+        "title": "High School Diploma",
+        "school": "Silver Creek High School",
+        "period": "2016 - 2020",
+        "description": "High School Diploma with Computer Science TA experience",
+        "relevantCoursework": [
+          "AP Computer Science A",
+          "Calculus",
+          "Physics",
+          "Robotics"
+        ],
+        "tags": ["Computer Science", "Teaching"]
+      }
+    ],
+    "skills": [
+      {
+        "id": 301,
+        "title": "Programming Languages",
+        "skills": ["JavaScript", "TypeScript", "Python", "C++", "Java"]
+      },
+      {
+        "id": 302,
+        "title": "Frontend Technologies",
+        "skills": ["React", "Vue.js", "Three.js", "D3.js", "HTML", "CSS", "TailwindCSS"]
+      },
+      {
+        "id": 303,
+        "title": "Backend Technologies",
+        "skills": ["Node.js", "Express", "GraphQL", "REST APIs", "AWS", "PostgreSQL"]
+      },
+      {
+        "id": 304,
+        "title": "Other",
+        "skills": ["CAD", "Machine Learning", "WebAssembly", "Git", "Linux"]
+      }
+    ],
+    "about": {
+      "name": "Peter Hindes",
+      "tagline": "Electrical & Computer Engineering Student | Full-Stack Developer",
+      "bio": "I'm a passionate engineer and developer currently pursuing my degree in Electrical & Computer Engineering at CU Boulder. With experience in both hardware and software, I enjoy building innovative solutions that merge these disciplines.",
+      "profileImage": "/profile.jpg"
+    },
+    "contact": {
+      "email": "contact@peterhindes.com",
+      "github": "https://github.com/PeterHindes"
+    }
+  }
+  

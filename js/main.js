@@ -21,6 +21,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const astronaut = new Astronaut();
     astronaut.init();
     
+    // Initialize project loader
+    const projectLoader = new ProjectLoader();
+    projectLoader.init();
+    
+    // No need for the separate shader uniform initialization function
+    // as it's now handled properly in the StarBackground class
+    
     console.log('Interactive portfolio initialized');
 });
 
