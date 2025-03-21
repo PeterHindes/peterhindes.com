@@ -1,0 +1,356 @@
+@import "tailwindcss";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Main site colors */
+  --site-bg: #d7d1bb;
+  --site-text: #2c3e2e;
+  
+  /* Blueprint specific colors */
+  --blueprint-bg: #efeae0;
+  --blueprint-grid-major: rgba(40, 140, 70, 0.2);
+  --blueprint-grid-minor: rgba(40, 140, 70, 0.08);
+  --blueprint-text-color: #0e0e32;
+  --card-text-color: #f0f0f0;
+  
+  /* Common colors with opacity */
+  --transparency-30: rgba(255, 255, 255, 0.3);
+  --transparency-20: rgba(255, 255, 255, 0.2);
+  --primary-60: rgba(15, 60, 30, 0.6);
+  --primary-80: rgba(15, 60, 30, 0.8);
+  --primary-100: rgba(15, 60, 30, 1);
+  
+  /* Shadow colors */
+  --shadow-light: rgba(0, 0, 0, 0.05);
+  --shadow-medium: rgba(0, 0, 0, 0.2);
+  
+  /* UI dimensions */
+  --card-border-radius: 25px;
+  
+  /* Font variables - Using the exact name from the font */
+  --font-sans: 'Pangolin', cursive;
+  --font-mono: var(--font-geist-mono);
+  --font-headings: 'Permanent Marker', cursive;
+}
+
+/* Custom font classes that directly use the font names */
+.font-permanent-marker {
+  font-family: 'Permanent Marker', cursive !important;
+}
+
+.font-pangolin {
+  font-family: 'Pangolin', cursive !important;
+}
+
+/* Font debug classes */
+.font-debug-marker {
+  font-family: 'Permanent Marker', cursive !important;
+}
+
+.font-debug-pangolin {
+  font-family: 'Pangolin', cursive !important;
+}
+
+/* Increase all fonts by 15% */
+html {
+  font-size: 115%; /* Increase base font size by 15% */
+}
+
+/* Base styles with stronger specificity */
+body {
+  background: var(--site-bg);
+  color: var(--site-text);
+  font-family: 'Pangolin', cursive !important;
+}
+
+h1, h2, h3, h4, h5, h6,
+.section-heading {
+  font-family: 'Permanent Marker', cursive !important;
+  letter-spacing: 0.01em;
+}
+
+/* Blueprint Paper Background */
+.blueprint-bg {
+  background-color: var(--blueprint-bg);
+  background-image: 
+    linear-gradient(var(--blueprint-grid-major) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blueprint-grid-major) 1px, transparent 1px),
+    linear-gradient(var(--blueprint-grid-minor) 1px, transparent 1px),
+    linear-gradient(90deg, var(--blueprint-grid-minor) 1px, transparent 1px);
+  background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
+  background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+  color: var(--blueprint-text-color);
+}
+
+/* Section Headings */
+.section-heading {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  padding-bottom: 15px;
+  color: var(--blueprint-text-color);
+  position: relative;
+  background-image: url('/scribble-underline.svg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: 100% 15px;
+  /* Remove the CSS animation */
+}
+
+/* Cards */
+.blueprint-card {
+  background-color: var(--primary-80);
+  border: 1px solid var(--transparency-20);
+  border-radius: var(--card-border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow-light);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative;
+  color: var(--card-text-color);
+  display: flex;
+  flex-direction: column;
+}
+
+.blueprint-card:hover {
+  background-color: var(--primary-100);
+  transform: translateY(-4px);
+  box-shadow: 6px 6px 12px var(--shadow-medium);
+}
+
+.blueprint-card h3, .blueprint-card h4 {
+  color: var(--card-text-color);
+}
+
+.blueprint-card > .mt-auto {
+  margin-top: auto;
+}
+
+/* Tags */
+.blueprint-tag {
+  font-size: 0.75rem;
+  background-color: var(--primary-60);
+  color: var(--card-text-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: calc(var(--card-border-radius) / 3);
+  border: 1px solid var(--transparency-20);
+}
+
+/* Links and Buttons */
+.blueprint-link {
+  color: var(--card-text-color);
+  font-weight: 600;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--card-text-color);
+  border-radius: calc(var(--card-border-radius) / 2);
+  transition: background-color 0.2s;
+}
+
+.blueprint-link:hover {
+  background-color: var(--transparency-20);
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--blueprint-text-color);
+  border-radius: calc(var(--card-border-radius) / 2);
+  color: var(--blueprint-text-color);
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.contact-button:hover {
+  background-color: var(--blueprint-text-color);
+  color: var(--blueprint-bg);
+}
+
+/* Card-specific button styles */
+.blueprint-card .contact-button {
+  border: 1px solid var(--card-text-color);
+  color: var(--card-text-color);
+}
+
+blueprint-card .contact-button:hover {
+  background-color: var(--card-text-color);
+  color: var(--blueprint-bg);
+}
+
+/* Scribbly Border for Profile Picture - Fixed sizing and positioning */
+.scribbly-border {
+  border: none;
+  background: transparent;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+}
+
+.scribbly-border::before {
+  content: '';
+  position: absolute;
+  top: -10px;
+  left: -10px;
+  right: -10px;
+  bottom: -10px;
+  border-radius: 50%;
+  background: transparent;
+  z-index: 5;
+  border: 3px solid var(--blueprint-text-color);
+}
+
+/* Scribbly Border for Project Images */
+.scribbly-image-border {
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  z-index: 5;
+  filter: url('#scribble-filter');
+  mask: url('/scribble-rectangle.svg');
+  mask-size: 100% 100%;
+  border: 3px solid var(--blueprint-text-color);
+}
+
+/* Fixed Profile picture container and hover effect */
+.profile-container {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 50%; /* Ensure the container is circular */
+  position: relative;
+  overflow: visible; /* Allow the SVG to extend outside the container */
+  margin: 1rem auto; /* Center on mobile */
+  width: 12rem;
+  height: 12rem;
+}
+
+@media (max-width: 768px) {
+  .profile-container {
+    width: 9rem;
+    height: 9rem;
+  }
+}
+
+.profile-container:hover {
+  transform: rotate(3deg) scale(1.05);
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+/* Make sure the profile circle stays centered */
+.profile-circle {
+  transform-origin: center;
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Profile picture hover effect */
+.profile-container {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 50%;
+  position: relative;
+  overflow: visible;
+  margin: 1rem auto;
+  /* Fixed width/height values based on exact requirements */
+  min-width: 9rem;
+  min-height: 9rem;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0; /* Prevent shrinking in flex layouts */
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    min-width: 12rem;
+    min-height: 12rem;
+  }
+}
+
+@media (min-width: 640px) and (max-width: 900px) {
+  .flex-col.md\:flex-row {
+    flex-direction: column !important;
+  }
+  
+  .md\:items-start {
+    align-items: center !important;
+  }
+  
+  .md\:text-left {
+    text-align: center !important;
+  }
+  
+  .md\:justify-start {
+    justify-content: center !important;
+  }
+}
+
+.profile-container:hover {
+  transform: rotate(3deg) scale(1.05);
+  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
+}
+
+/* Improved profile circle with proper sizing and positioning */
+.profile-container {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  border-radius: 50%;
+  position: relative;
+  overflow: visible; /* Allow the SVG to extend outside */
+  margin: 1rem auto;
+  min-width: 9rem;
+  min-height: 9rem;
+  aspect-ratio: 1 / 1;
+  flex-shrink: 0; /* Prevent shrinking in flex layouts */
+  padding-bottom: 0.5rem; /* Add bottom padding to prevent cutoff */
+}
+
+@media (min-width: 768px) {
+  .profile-container {
+    min-width: 12rem;
+    min-height: 12rem;
+  }
+}
+
+/* Make sure the profile circle stays centered and visible */
+.profile-circle {
+  transform-origin: center;
+  pointer-events: none;
+  z-index: 6 !important; /* Ensure higher z-index */
+  overflow: visible !important; /* Make sure no part gets cut off */
+}
+
+/* Ensure the bottom of the circle is fully visible */
+.profile-container::after {
+  content: '';
+  display: block;
+  height: 15px; /* Add extra space at bottom */
+  width: 100%;
+  position: absolute;
+  bottom: -15px;
+  left: 0;
+  z-index: 1;
+}
+
+/* Responsive adjustments */
+@media (max-width: 640px) {
+  html {
+    font-size: 105%; /* Slightly smaller base font size on mobile */
+  }
+  
+  .section-heading {
+    padding-bottom: 12px; /* Smaller padding for mobile */
+    background-size: 100% 12px; /* Smaller scribble for mobile */
+  }
+  
+  /* Make project cards full width on mobile */
+  .blueprint-card {
+    width: 100%;
+  }
+}
+
+/* Ensure SVGs are responsive */
+svg.scribble-underline {
+  width: 100% !important;
+  height: auto !important;
+  max-height: 15px;
+}

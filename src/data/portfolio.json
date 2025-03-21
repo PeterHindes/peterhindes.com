@@ -1,0 +1,145 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "LineOnLine.app",
+      "description": "A new way to wait in line without standing around. Current project.",
+      "modelType": "display",
+      "image": "/lineonline.png",
+      "tags": ["CSS", "Cloudlfare Workers", "Cloudflare D1", "Sqlite", "JavaScript", "WebCrypto"],
+      "link": "https://lineonline.app"
+    },
+    {
+      "id": 2,
+      "title": "MathCrowPad",
+      "description": "A number pad for chemistry and math.",
+      "modelType": "computer",
+      "image": "/mathcrowpad.jpg",
+      "tags": ["React", "JavaScript", "HTML", "CSS"],
+      "link": "https://github.com/PeterHindes/MathCrowPad"
+    }
+  ],
+  "jobs": [
+    {
+      "id": 101,
+      "title": "DLA Research Assistant",
+      "company": "CU Boulder Genetic Logic Lab",
+      "period": "2024 - Present",
+      "description": "Research Assistant on the Synbiohub.org team",
+      "modelType": "computer",
+      "tags": ["SynBioHub", "JavaScript", "React", "NextJS", "SparQL", "Node.js", "Java", "Python", "Docker"]
+    },
+    {
+      "id": 102,
+      "title": "Computer Recycling Lead",
+      "company": "Boulder Valley Waldorf School",
+      "period": "2020 - 2024",
+      "description": "Lead the computer recycling program",
+      "modelType": "computer",
+      "tags": ["Recycling", "Management", "Process Development"]
+    },
+    {
+      "id": 103,
+      "title": "Volunteer CAD Designer",
+      "company": "FIRST Robotics",
+      "period": "2017 - 2018",
+      "description": "Volunteer CAD Designer",
+      "modelType": "rocket",
+      "tags": ["SolidWorks", "Sheet Metal", "Robotics"]
+    }
+  ],
+  "education": [
+    {
+      "id": 201,
+      "title": "Electrical & Computer Engineering B.S.",
+      "school": "University of Colorado Boulder",
+      "period": "2024 - 2027",
+      "description": "Currently pursuing a Bachelor of Science in Electrical & Computer Engineering",
+      "relevantCoursework": [
+        "Embedded Software Engineering",
+        "Digital Logic Design",
+        "Signals and Systems",
+        "Electromagnetics",
+        "Embedded Applications",
+        "Probability"
+      ],
+      "tags": ["Electrical Engineering", "Computer Engineering"]
+    },
+    {
+      "id": 202,
+      "title": "Physics A.S.",
+      "school": "Front Range Community College",
+      "period": "2021 - 2025",
+      "description": "Associate of Science in Physics",
+      "relevantCoursework": [
+        "Assembly Language Programming",
+        "Calculus-Based Physics I & II & III",
+        "Differential Equations & Linear Algebra",
+        "Physics Lab I & II",
+        "Chemistry I"
+      ],
+      "tags": ["Physics", "Mathematics"]
+    },
+    {
+      "id": 203,
+      "title": "High School Diploma",
+      "school": "Silver Creek High School",
+      "period": "2016 - 2020",
+      "description": "High School Diploma with Computer Science TA experience",
+      "relevantCoursework": [
+        "Computer Science",
+        "Video Editing and Production",
+        "Chemistry",
+        "Xilinx FPGA Program"
+      ],
+      "tags": ["Computer Science", "Teaching"]
+    }
+  ],
+  "skills": [
+    {
+      "id": 301,
+      "title": "Programming Languages",
+      "skills": ["JavaScript", "TypeScript", "Python", "C", "C++", "Java", "C#", "Rust", "Verilog", "x86 Assembly", "MATLAB", "SQL", "Go Lang"]
+    },
+    {
+      "id": 302,
+      "title": "Frontend Technologies",
+      "skills": ["React", "Vue.js", "Three.js", "D3.js", "HTML", "CSS", "TailwindCSS"]
+    },
+    {
+      "id": 303,
+      "title": "Backend Technologies",
+      "skills": ["Go Gin", "Rust Tokio", "Flask", "Node.js", "Bun", "Express", "GraphQL", "REST APIs", "OpenApi Spec", "Sqlite", "MongoDB", "Redis", "Docker"]
+    },
+    {
+      "id": 304,
+      "title": "Cloud Technologies",
+      "skills": ["Cloudflare Workers", "Cloudflare D1", "Cloudflare KV", "Cloudflare Pages", "Cloudflare Workers Durable Objects", "OpenTofu/Terraform", "AWS", "Azure", "Google Cloud"]
+    },
+    {
+      "id": 305,
+      "title": "Hardware",
+      "skills": ["PCB Design", "Oscilloscope", "Logic Analyzer"]
+    },
+    {
+      "id": 306,
+      "title": "Game Development",
+      "skills": ["Unity", "Godot", "Unreal Engine", "Blender", "Photoshop", "GIMP", "Inkscape", "3D Scanning", "3D Printing"]
+    },
+    {
+      "id": 307,
+      "title": "Other",
+      "skills": ["SolidWorks", "Fusion", "KiCAD", "Git", "Linux", "Bash Scripting"]
+    }
+  ],
+  "about": {
+    "name": "Peter Hindes",
+    "tagline": "Everything Developer, No Seriously!",
+    "bio": "I'm an electrical engineer, web, and game developer. These days I spend most of my time pursuing my degrees in Electrical & Computer Engineering, and Computer Science at CU Boulder with a minor in Engineering Management. With in depth experience in both hardware, software, and tech art, I am uniquely skilled at building cross disciplinary projects and interactive art. I am obsessed with building and iterating projects to perfect performance in both technical and UX aspects.",
+    "profileImage": "/profile.jpg"
+  },
+  "contact": {
+    "email": "contact@peterhindes.com",
+    "github": "https://github.com/PeterHindes"
+  }
+}

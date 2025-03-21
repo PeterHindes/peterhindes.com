@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 200" width="400" height="200">
+  <path d="M10,10 
+    C 15,5, 385,5, 390,10 
+    C 395,15, 395,185, 390,190 
+    C 385,195, 15,195, 10,190 
+    C 5,185, 5,15, 10,10 Z" 
+    stroke="currentColor" 
+    stroke-width="3" 
+    fill="none" 
+    stroke-linecap="round" 
+    vector-effect="non-scaling-stroke" />
+</svg>
