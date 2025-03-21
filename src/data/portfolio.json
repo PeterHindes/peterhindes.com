@@ -5,7 +5,7 @@
       "title": "LineOnLine.app",
       "description": "A new way to wait in line without standing around. Current project.",
       "modelType": "display",
-      "image": "/lineonline.png",
+      "image": "/lineonline.jpg",
       "tags": ["CSS", "Cloudlfare Workers", "Cloudflare D1", "Sqlite", "JavaScript", "WebCrypto"],
       "link": "https://lineonline.app"
     },
