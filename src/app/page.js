@@ -136,8 +136,8 @@ export default function Home() {
                     <Image 
                       src={job.icon}
                       alt={`${job.title} icon`}
-                      width={38}
-                      height={38}
+                      fill
+                      sizes="40px"
                       className="object-contain relative"
                       style={{ zIndex: 2 }}
                     />
@@ -172,8 +172,8 @@ export default function Home() {
                     <Image 
                       src={edu.icon}
                       alt={`${edu.school} icon`}
-                      width={38}
-                      height={38}
+                      fill
+                      sizes="40px"
                       className="object-contain relative"
                       style={{ zIndex: 2 }}
                     />
