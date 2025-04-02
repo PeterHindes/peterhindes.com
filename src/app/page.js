@@ -2,7 +2,8 @@ import Image from "next/image";
 import portfolioData from "@/data/portfolio.json";
 
 export default function Home() {
-  const { about, projects, jobs, education, skills, contact } = portfolioData;
+  const { about, projects, jobs, education, skills, contact, settings } = portfolioData;
+  const showSkillEmojis = settings?.showSkillEmojis ?? true; // Default to true if not specified
 
   return (
     <div className="min-h-screen blueprint-bg">
@@ -102,7 +103,14 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
             {skills.map((skillCategory) => (
               <div key={skillCategory.id} className="blueprint-card">
-                <h3 className="font-bold text-xl mb-3">{skillCategory.title}</h3>
+                <div className="flex items-center mb-3">
+                  {showSkillEmojis && skillCategory.emoji && (
+                    <span className="text-2xl mr-2" role="img" aria-label={`${skillCategory.title} icon`}>
+                      {skillCategory.emoji}
+                    </span>
+                  )}
+                  <h3 className="font-bold text-xl">{skillCategory.title}</h3>
+                </div>
                 <div className="flex flex-wrap gap-2">
                   {skillCategory.skills.map((skill, index) => (
                     <span key={index} className="blueprint-tag">{skill}</span>
@@ -119,13 +127,30 @@ export default function Home() {
           <div className="space-y-6">
             {jobs.map((job) => (
               <div key={job.id} className="blueprint-card">
-                <h3 className="font-bold text-xl">{job.title}</h3>
-                <p className="font-medium">{job.company} | {job.period}</p>
+                <div className="flex items-center mb-1">
+                  <div className="relative w-10 h-10 mr-3 flex items-center justify-center">
+                    {job.needsBackground && (
+                      <div className="absolute w-9 h-9 bg-white rounded-md" 
+                           style={{ zIndex: 1 }}></div>
+                    )}
+                    <Image 
+                      src={job.icon}
+                      alt={`${job.title} icon`}
+                      width={38}
+                      height={38}
+                      className="object-contain relative"
+                      style={{ zIndex: 2 }}
+                    />
+                  </div>
+                  <h3 className="font-bold text-xl">{job.title}</h3>
+                </div>
+                <p className="font-medium">{job.company}</p>
                 <p className="my-2">{job.description}</p>
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 items-center">
                   {job.tags.map((tag, index) => (
                     <span key={index} className="blueprint-tag">{tag}</span>
                   ))}
+                  <span className="blueprint-tag ml-auto bg-blue-800/30">{job.period}</span>
                 </div>
               </div>
             ))}
@@ -138,8 +163,24 @@ export default function Home() {
           <div className="space-y-6">
             {education.map((edu) => (
               <div key={edu.id} className="blueprint-card">
-                <h3 className="font-bold text-xl">{edu.title}</h3>
-                <p className="font-medium">{edu.school} | {edu.period}</p>
+                <div className="flex items-center mb-1">
+                  <div className="relative w-10 h-10 mr-3 flex items-center justify-center">
+                    {edu.needsBackground && (
+                      <div className="absolute w-9 h-9 bg-white rounded-md" 
+                           style={{ zIndex: 1 }}></div>
+                    )}
+                    <Image 
+                      src={edu.icon}
+                      alt={`${edu.school} icon`}
+                      width={38}
+                      height={38}
+                      className="object-contain relative"
+                      style={{ zIndex: 2 }}
+                    />
+                  </div>
+                  <h3 className="font-bold text-xl">{edu.title}</h3>
+                </div>
+                <p className="font-medium">{edu.school}</p>
                 <p className="my-2">{edu.description}</p>
                 <div className="my-2">
                   <h4 className="font-medium">Relevant Coursework:</h4>
@@ -148,6 +189,12 @@ export default function Home() {
                       <li key={index}>{course}</li>
                     ))}
                   </ul>
+                </div>
+                <div className="flex flex-wrap gap-2 items-center mt-3">
+                  {edu.tags && edu.tags.map((tag, index) => (
+                    <span key={index} className="blueprint-tag">{tag}</span>
+                  ))}
+                  <span className="blueprint-tag ml-auto bg-blue-800/30">{edu.period}</span>
                 </div>
               </div>
             ))}

@@ -5,7 +5,7 @@
       "title": "LineOnLine.app",
       "description": "A new way to wait in line without standing around. Current project.",
       "modelType": "display",
-      "image": "/lineonline.jpg",
+      "image": "/images/projects/lineonline.jpg",
       "tags": ["CSS", "Cloudlfare Workers", "Cloudflare D1", "Sqlite", "JavaScript", "WebCrypto"],
       "link": "https://lineonline.app"
     },
@@ -14,9 +14,18 @@
       "title": "MathCrowPad",
       "description": "A number pad for chemistry and math.",
       "modelType": "computer",
-      "image": "/mathcrowpad.jpg",
+      "image": "/images/projects/mathcrowpad.jpg",
       "tags": ["React", "JavaScript", "HTML", "CSS"],
       "link": "https://github.com/PeterHindes/MathCrowPad"
+    },
+    {
+      "id": 3,
+      "title": "FPGA WS2812B Controller",
+      "description": "A controller for WS2812B LEDs using an FPGA. Fully written in Verilog.",
+      "modelType": "arduino",
+      "image": "/images/projects/WS2812b.jpg",
+      "tags": ["Verilog", "FPGA", "WS2812B", "LEDs", "Clock Dividers", "Finite State Machines"],
+      "link": "https://github.com/PeterHindes/ws2812-fpga-driver"
     }
   ],
   "jobs": [
@@ -27,8 +36,11 @@
       "period": "2024 - Present",
       "description": "Research Assistant on the Synbiohub.org team",
       "modelType": "computer",
+      "icon": "/images/jobs/cu-dla.png",
+      "needsBackground": false,
       "tags": ["SynBioHub", "JavaScript", "React", "NextJS", "SparQL", "Node.js", "Java", "Python", "Docker"]
     },
+    
     {
       "id": 102,
       "title": "Computer Recycling Lead",
@@ -36,15 +48,19 @@
       "period": "2020 - 2024",
       "description": "Lead the computer recycling program",
       "modelType": "computer",
+      "icon": "/images/jobs/bvws.png",
+      "needsBackground": true,
       "tags": ["Recycling", "Management", "Process Development"]
     },
     {
       "id": 103,
       "title": "Volunteer CAD Designer",
-      "company": "FIRST Robotics",
+      "company": "FIRST Robotics Competition Team 1619",
       "period": "2017 - 2018",
       "description": "Volunteer CAD Designer",
       "modelType": "rocket",
+      "icon": "/images/jobs/team1619.png",
+      "needsBackground": false,
       "tags": ["SolidWorks", "Sheet Metal", "Robotics"]
     }
   ],
@@ -55,6 +71,8 @@
       "school": "University of Colorado Boulder",
       "period": "2024 - 2027",
       "description": "Currently pursuing a Bachelor of Science in Electrical & Computer Engineering",
+      "icon": "/images/education/cu-boulder.png",
+      "needsBackground": false,
       "relevantCoursework": [
         "Embedded Software Engineering",
         "Digital Logic Design",
@@ -71,6 +89,8 @@
       "school": "Front Range Community College",
       "period": "2021 - 2025",
       "description": "Associate of Science in Physics",
+      "icon": "/images/education/frcc.png",
+      "needsBackground": true,
       "relevantCoursework": [
         "Assembly Language Programming",
         "Calculus-Based Physics I & II & III",
@@ -86,6 +106,8 @@
       "school": "Silver Creek High School",
       "period": "2016 - 2020",
       "description": "High School Diploma with Computer Science TA experience",
+      "icon": "/images/education/silver-creek.png",
+      "needsBackground": false,
       "relevantCoursework": [
         "Computer Science",
         "Video Editing and Production",
@@ -99,36 +121,43 @@
     {
       "id": 301,
       "title": "Programming Languages",
+      "emoji": "💻",
       "skills": ["JavaScript", "TypeScript", "Python", "C", "C++", "Java", "C#", "Rust", "Verilog", "x86 Assembly", "MATLAB", "SQL", "Go Lang"]
     },
     {
       "id": 302,
       "title": "Frontend Technologies",
+      "emoji": "🎨",
       "skills": ["React", "Vue.js", "Three.js", "D3.js", "HTML", "CSS", "TailwindCSS"]
     },
     {
       "id": 303,
       "title": "Backend Technologies",
+      "emoji": "⚙️",
       "skills": ["Go Gin", "Rust Tokio", "Flask", "Node.js", "Bun", "Express", "GraphQL", "REST APIs", "OpenApi Spec", "Sqlite", "MongoDB", "Redis", "Docker"]
     },
     {
       "id": 304,
       "title": "Cloud Technologies",
+      "emoji": "☁️",
       "skills": ["Cloudflare Workers", "Cloudflare D1", "Cloudflare KV", "Cloudflare Pages", "Cloudflare Workers Durable Objects", "OpenTofu/Terraform", "AWS", "Azure", "Google Cloud"]
     },
     {
       "id": 305,
       "title": "Hardware",
+      "emoji": "🔌",
       "skills": ["PCB Design", "Oscilloscope", "Logic Analyzer"]
     },
     {
       "id": 306,
       "title": "Game Development",
+      "emoji": "🎮",
       "skills": ["Unity", "Godot", "Unreal Engine", "Blender", "Photoshop", "GIMP", "Inkscape", "3D Scanning", "3D Printing"]
     },
     {
       "id": 307,
       "title": "Other",
+      "emoji": "🛠️",
       "skills": ["SolidWorks", "Fusion", "KiCAD", "Git", "Linux", "Bash Scripting"]
     }
   ],
@@ -141,5 +170,8 @@
   "contact": {
     "email": "contact@peterhindes.com",
     "github": "https://github.com/PeterHindes"
+  },
+  "settings": {
+    "showSkillEmojis": true
   }
 }
