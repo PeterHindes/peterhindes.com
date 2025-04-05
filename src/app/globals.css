@@ -112,12 +112,15 @@ h1, h2, h3, h4, h5, h6,
   display: flex;
   flex-direction: column;
 }
-}
 
 .blueprint-card:hover {
-  background-color: var(--primary-100);
   transform: translateY(-4px);
   box-shadow: 6px 6px 12px var(--shadow-medium);
+}
+
+.blueprint-card:hover::before {
+  opacity: 1;
+  animation-play-state: running;
 }
 
 .blueprint-card h3, .blueprint-card h4 {
@@ -214,7 +217,6 @@ blueprint-card .contact-button:hover {
   filter: url('#scribble-filter');
   mask: url('/scribble-rectangle.svg');
   mask-size: 100% 100%;
-  border: 3px solid var(--blueprint-text-color);
 }
 
 /* Fixed Profile picture container and hover effect */
