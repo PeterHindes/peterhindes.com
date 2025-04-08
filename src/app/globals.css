@@ -213,40 +213,82 @@ blueprint-card .contact-button:hover {
   color: var(--blueprint-bg);
 }
 
-/* Scribbly Border for Profile Picture - Fixed sizing and positioning */
-.scribbly-border {
-  border: none;
-  background: transparent;
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  top: 0;
-  left: 0;
-}
-
-.scribbly-border::before {
-  content: '';
-  position: absolute;
-  top: -10px;
-  left: -10px;
-  right: -10px;
-  bottom: -10px;
-  border-radius: 50%;
-  background: transparent;
-  z-index: 5;
-  border: 3px solid var(--blueprint-text-color);
-}
-
-
-/* Fixed Profile picture container and hover effect */
+/* Profile container with torn paper effect - enhanced antialiasing */
 .profile-container {
-  transition: transform 0.3s ease, filter 0.3s ease;
-  border-radius: 50%; /* Ensure the container is circular */
   position: relative;
-  overflow: visible; /* Allow the SVG to extend outside the container */
-  margin: 1rem auto; /* Center on mobile */
+  margin: 1rem auto;
   width: 12rem;
   height: 12rem;
+  border-radius: 50%;
+  /* Apply the torn paper mask to the container with improved antialiasing */
+  mask-image: url('/torn-circle-mask.svg');
+  mask-size: contain;
+  -webkit-mask-image: url('/torn-circle-mask.svg');
+  -webkit-mask-size: contain;
+  
+  /* Add a very slight blur for smoother edges */
+  filter: blur(0.2px);
+  /* Counteract the blur with a slight sharpening */
+  image-rendering: optimizeQuality;
+  
+  overflow: hidden;
+}
+
+/* Remove the slight blur when hovering to maintain image quality */
+.profile-container:hover {
+  filter: none;
+}
+
+/* Inner content that rotates */
+.profile-container .profile-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+
+/* The inner content rotates on hover */
+.profile-container:hover .profile-content {
+  transform: rotate(3deg) scale(1.05);
+}
+
+/* Create a more pronounced inset shadow - this stays fixed */
+.profile-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: 
+    inset 0 0 20px 10px rgba(0,0,0,0.5),
+    inset 0 0 5px 2px rgba(0,0,0,0.7);
+  border-radius: 50%;
+  z-index: 20; /* Make sure it's above the image */
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: multiply; /* Helps the shadow blend with the image */
+}
+
+/* Make the shadow fainter on hover */
+.profile-container:hover::before {
+  opacity: 0.3;
+}
+
+/* Create a more subtle inset shadow */
+.profile-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.3);
+  z-index: 10;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+/* Make the shadow even fainter on hover */
+.profile-container:hover::after {
+  opacity: 0.15;
 }
 
 @media (max-width: 768px) {
@@ -254,103 +296,6 @@ blueprint-card .contact-button:hover {
     width: 9rem;
     height: 9rem;
   }
-}
-
-.profile-container:hover {
-  transform: rotate(3deg) scale(1.05);
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
-}
-
-/* Make sure the profile circle stays centered */
-.profile-circle {
-  transform-origin: center;
-  pointer-events: none;
-  z-index: 5;
-}
-
-/* Profile picture hover effect */
-.profile-container {
-  transition: transform 0.3s ease, filter 0.3s ease;
-  border-radius: 50%;
-  position: relative;
-  overflow: visible;
-  margin: 1rem auto;
-  /* Fixed width/height values based on exact requirements */
-  min-width: 9rem;
-  min-height: 9rem;
-  aspect-ratio: 1 / 1;
-  flex-shrink: 0; /* Prevent shrinking in flex layouts */
-}
-
-@media (min-width: 768px) {
-  .profile-container {
-    min-width: 12rem;
-    min-height: 12rem;
-  }
-}
-
-@media (min-width: 640px) and (max-width: 900px) {
-  .flex-col.md\:flex-row {
-    flex-direction: column !important;
-  }
-  
-  .md\:items-start {
-    align-items: center !important;
-  }
-  
-  .md\:text-left {
-    text-align: center !important;
-  }
-  
-  .md\:justify-start {
-    justify-content: center !important;
-  }
-}
-
-.profile-container:hover {
-  transform: rotate(3deg) scale(1.05);
-  filter: drop-shadow(0 10px 15px rgba(0, 0, 0, 0.3));
-}
-
-/* Improved profile circle with proper sizing and positioning */
-.profile-container {
-  transition: transform 0.3s ease, filter 0.3s ease;
-  border-radius: 50%;
-  position: relative;
-  overflow: visible; /* Allow the SVG to extend outside */
-  margin: 1rem auto;
-  min-width: 9rem;
-  min-height: 9rem;
-  aspect-ratio: 1 / 1;
-  flex-shrink: 0; /* Prevent shrinking in flex layouts */
-  padding-bottom: 0.5rem; /* Add bottom padding to prevent cutoff */
-}
-
-@media (min-width: 768px) {
-  .profile-container {
-    min-width: 12rem;
-    min-height: 12rem;
-  }
-}
-
-/* Make sure the profile circle stays centered and visible */
-.profile-circle {
-  transform-origin: center;
-  pointer-events: none;
-  z-index: 6 !important; /* Ensure higher z-index */
-  overflow: visible !important; /* Make sure no part gets cut off */
-}
-
-/* Ensure the bottom of the circle is fully visible */
-.profile-container::after {
-  content: '';
-  display: block;
-  height: 15px; /* Add extra space at bottom */
-  width: 100%;
-  position: absolute;
-  bottom: -15px;
-  left: 0;
-  z-index: 1;
 }
 
 /* Responsive adjustments */

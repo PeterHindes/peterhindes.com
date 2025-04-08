@@ -13,31 +13,17 @@ export default function Home() {
           <div className="flex flex-col md:flex-row gap-8 items-center md:items-start">
             {/* Profile Image with fixed dimensions and spacing - improved sizing */}
             <div className="relative flex-shrink-0 w-36 h-36 md:w-48 md:h-48 profile-container cursor-pointer mx-auto md:mx-0">
-              {/* SVG with improved positioning and size */}
-              <svg 
-                className="absolute w-[125%] h-[125%] -left-[12.5%] -top-[12.5%] profile-circle" 
-                viewBox="0 0 200 200"
-                style={{ zIndex: 6 }} // Increased z-index
-              >
-                <path 
-                  id="profile-circle-path"
-                  d="M100,190 C120,190 140,180 160,160 C180,140 190,120 190,100 C190,80 180,60 160,40 C140,20 120,10 100,10 C80,10 60,20 40,40 C20,60 10,80 10,100 C10,120 20,140 40,160 C60,180 80,190 100,190 Z" 
-                  stroke="var(--blueprint-text-color)" 
-                  strokeWidth="3" 
-                  fill="none" 
-                  strokeLinecap="round"
-                  vectorEffect="non-scaling-stroke"
-                />
-              </svg>
-              <div className="absolute inset-0 rounded-full overflow-hidden z-5">
-                <Image
-                  src={about.profileImage}
-                  alt={about.name}
-                  fill
-                  sizes="(max-width: 768px) 144px, 192px"
-                  className="object-cover"
-                  priority
-                />
+              <div className="profile-content">
+                <div className="absolute inset-0 rounded-full overflow-hidden z-5">
+                  <Image
+                    src={about.profileImage}
+                    alt={about.name}
+                    fill
+                    sizes="(max-width: 768px) 144px, 192px"
+                    className="object-cover"
+                    priority
+                  />
+                </div>
               </div>
             </div>
             <div className="text-center md:text-left flex-grow">
@@ -48,8 +34,8 @@ export default function Home() {
                 <a href={`mailto:${contact.email}`} className="contact-button">
                   {contact.email}
                 </a>
-                <a href={contact.github} target="_blank" rel="noopener noreferrer" className="contact-button">
-                  GitHub
+                <a href={"https://github.com/"+contact.github} target="_blank" rel="noopener noreferrer" className="contact-button">
+                  {"GitHub/"+contact.github}
                 </a>
               </div>
             </div>
