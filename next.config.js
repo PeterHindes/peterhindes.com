@@ -3,10 +3,10 @@ const nextConfig = {
   // Disable strict mode for image optimization
   reactStrictMode: false,
   
-  // Simplified image configuration
+  output: 'export', // Enable static exports
   images: {
-    formats: ['image/avif', 'image/webp'],
-  }
+    unoptimized: true, // Required for static export
+  },
 }
 
 module.exports = nextConfig
