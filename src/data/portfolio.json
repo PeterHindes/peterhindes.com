@@ -1,63 +1,63 @@
 {
+  "settings": {
+    "showSkillEmojis": true
+  },
+  "about": {
+    "name": "Peter Hindes",
+    "tagline": "Everything Developer, No Seriously!",
+    "bio": "I'm an electrical engineering and computer science student, and a web and game developer. These days I spend most of my time pursuing my degrees in Electrical & Computer Engineering, and Computer Science at CU Boulder with a minor in Engineering Management. With in depth experience in both hardware, software, and tech art, I am uniquely skilled at building cross disciplinary projects and interactive art. I am obsessed with building and iterating projects to perfect performance in both technical and UX aspects.",
+    "profileImage": "/profile.jpg"
+  },
+  "contact": {
+    "email": "contact@peterhindes.com",
+    "github": "https://github.com/PeterHindes"
+  },
   "projects": [
     {
-      "id": 1,
-      "title": "LineOnLine.app",
-      "description": "A new way to wait in line without standing around. Current project.",
-      "modelType": "display",
-      "image": "/images/projects/lineonline.jpg",
-      "tags": ["CSS", "Cloudlfare Workers", "Cloudflare D1", "Sqlite", "JavaScript", "WebCrypto"],
-      "link": "https://lineonline.app"
+      "title": "STM32 Tetris",
+      "description": "A touch screen Tetris game written in C with no operating system, for the STM32F4 Discovery board.",
+      "image": "/images/projects/stmTetris.jpg",
+      "tags": ["STM32", "C", "Tetris", "Touch Screen", "SPI", "Object Oriented Design"],
+      "link": "https://github.com/PeterHindes/stm32-discovery-tetris"
     },
     {
-      "id": 2,
       "title": "MathCrowPad",
       "description": "A number pad for chemistry and math.",
-      "modelType": "computer",
       "image": "/images/projects/mathcrowpad.jpg",
       "tags": ["React", "JavaScript", "HTML", "CSS"],
       "link": "https://github.com/PeterHindes/MathCrowPad"
     },
     {
-      "id": 3,
       "title": "FPGA WS2812B Controller",
       "description": "A controller for WS2812B LEDs using an FPGA. Fully written in Verilog.",
-      "modelType": "arduino",
       "image": "/images/projects/WS2812b.jpg",
       "tags": ["Verilog", "FPGA", "WS2812B", "LEDs", "Clock Dividers", "Finite State Machines"],
       "link": "https://github.com/PeterHindes/ws2812-fpga-driver"
     },
     {
-      "id": 4,
       "title": "x86 MASM Assembly Number Multiplier",
       "description": "A number multiplier written in x86 MASM Assembly.",
-      "modelType": "computer",
       "image": "/images/projects/assembly.jpg",
       "tags": ["x86 Assembly", "MASM", "Assembly Language", "Visual Studio"],
       "link": "https://github.com/PeterHindes/CSC2025-PHindes/blob/main/CSC2025/IntMul/main.asm"
     },
     {
-      "id": 5,
       "title": "PencilSharpener",
       "description": "A python utility to prepare images of black and white hand drawn pencil sketches for conversion to vector graphics.",
-      "modelType": "pencil",
       "image": "/images/projects/pencilsharpener.jpg",
       "tags": ["Python", "Image Processing", "PIL", "OpenCV"],
       "link": "https://github.com/PeterHindes/pencilSharpener"
     },
     {
-      "id": 6,
-      "title": "STM32 Tetris",
-      "description": "A touch screen Tetris game written in C with no operating system, for the STM32F4 Discovery board.",
-      "modelType": "stm32",
-      "image": "/images/projects/stmTetris.jpg",
-      "tags": ["STM32", "C", "Tetris", "Touch Screen", "SPI", "Object Oriented Design"],
-      "link": "https://github.com/PeterHindes/stm32-discovery-tetris"
+      "title": "LineOnLine.app",
+      "description": "A new way to wait in line without standing around. Current project.",
+      "image": "/images/projects/lineonline.jpg",
+      "tags": ["CSS", "Cloudlfare Workers", "Cloudflare D1", "Sqlite", "JavaScript", "WebCrypto"],
+      "link": "https://lineonline.app"
     }
   ],
   "jobs": [
     {
-      "id": 101,
       "title": "DLA Research Assistant",
       "company": "CU Boulder Genetic Logic Lab",
       "period": "2024 - Present",
@@ -69,7 +69,6 @@
     },
     
     {
-      "id": 102,
       "title": "Computer Recycling Lead",
       "company": "Boulder Valley Waldorf School",
       "period": "2020 - 2024",
@@ -80,7 +79,6 @@
       "tags": ["Recycling", "Management", "Process Development"]
     },
     {
-      "id": 103,
       "title": "Volunteer CAD Designer",
       "company": "FIRST Robotics Competition Team 1619",
       "period": "2017 - 2018",
@@ -93,7 +91,6 @@
   ],
   "education": [
     {
-      "id": 201,
       "title": "Electrical & Computer Engineering B.S.",
       "school": "University of Colorado Boulder",
       "period": "2024 - 2027",
@@ -111,7 +108,6 @@
       "tags": ["Electrical Engineering", "Computer Engineering"]
     },
     {
-      "id": 202,
       "title": "Physics A.S.",
       "school": "Front Range Community College",
       "period": "2021 - 2025",
@@ -128,7 +124,6 @@
       "tags": ["Physics", "Mathematics"]
     },
     {
-      "id": 203,
       "title": "High School Diploma",
       "school": "Silver Creek High School",
       "period": "2016 - 2020",
@@ -146,59 +141,39 @@
   ],
   "skills": [
     {
-      "id": 301,
       "title": "Programming Languages",
       "emoji": "💻",
       "skills": ["JavaScript", "TypeScript", "Python", "C", "C++", "Java", "C#", "Rust", "Verilog", "x86 Assembly", "MATLAB", "SQL", "Go Lang"]
     },
     {
-      "id": 302,
       "title": "Frontend Technologies",
       "emoji": "🎨",
       "skills": ["React", "NextJS", "Vue.js", "Three.js", "D3.js", "HTML", "CSS", "TailwindCSS"]
     },
     {
-      "id": 303,
       "title": "Backend Technologies",
       "emoji": "⚙️",
       "skills": ["Go Gin", "Rust Tokio", "Flask", "Node.js", "Bun", "Express", "GraphQL", "REST APIs", "OpenApi Spec", "Sqlite", "MongoDB", "Redis", "Docker"]
     },
     {
-      "id": 304,
       "title": "Cloud Technologies",
       "emoji": "☁️",
       "skills": ["Cloudflare Workers", "Cloudflare D1", "Cloudflare KV", "Cloudflare Pages", "Cloudflare Workers Durable Objects", "OpenTofu/Terraform", "AWS", "Azure", "Google Cloud"]
     },
     {
-      "id": 305,
       "title": "Hardware",
       "emoji": "🔌",
       "skills": ["PCB Design", "Oscilloscope", "Logic Analyzer"]
     },
     {
-      "id": 306,
       "title": "Game Development",
       "emoji": "🎮",
       "skills": ["Unity", "Godot", "Unreal Engine", "Blender", "Photoshop", "GIMP", "Inkscape", "3D Scanning", "3D Printing"]
     },
     {
-      "id": 307,
       "title": "Other",
       "emoji": "🛠️",
       "skills": ["SolidWorks", "Fusion", "KiCAD", "Git", "Linux", "Bash Scripting"]
     }
-  ],
-  "about": {
-    "name": "Peter Hindes",
-    "tagline": "Everything Developer, No Seriously!",
-    "bio": "I'm an electrical engineering and computer science student, and a web and game developer. These days I spend most of my time pursuing my degrees in Electrical & Computer Engineering, and Computer Science at CU Boulder with a minor in Engineering Management. With in depth experience in both hardware, software, and tech art, I am uniquely skilled at building cross disciplinary projects and interactive art. I am obsessed with building and iterating projects to perfect performance in both technical and UX aspects.",
-    "profileImage": "/profile.jpg"
-  },
-  "contact": {
-    "email": "contact@peterhindes.com",
-    "github": "https://github.com/PeterHindes"
-  },
-  "settings": {
-    "showSkillEmojis": true
-  }
+  ]
 }

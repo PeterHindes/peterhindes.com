@@ -62,11 +62,9 @@ export default function Home() {
         <section className="mb-16">
           <h2 className="section-heading font-permanent-marker">Projects</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            {projects.map((project) => (
-              <div key={project.id} className="blueprint-card flex flex-col h-full">
-                <div className="relative h-60 w-full mb-4 overflow-hidden rounded-xl border-b border-white/30">
-                  {/* Scribbly Border for Project Images */}
-                  <div className="absolute inset-0 scribbly-image-border"></div>
+            {projects.map((project, index) => (
+              <div key={index} className="blueprint-card flex flex-col h-full">
+                <div className="relative h-60 w-full mb-4 overflow-hidden rounded-xl">
                   <Image
                     src={project.image}
                     alt={project.title}
@@ -101,8 +99,8 @@ export default function Home() {
         <section className="mb-8">
           <h2 className="section-heading">Skills</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {skills.map((skillCategory) => (
-              <div key={skillCategory.id} className="blueprint-card">
+            {skills.map((skillCategory, index) => (
+              <div key={index} className="blueprint-card">
                 <div className="flex items-center mb-3">
                   {showSkillEmojis && skillCategory.emoji && (
                     <span className="text-2xl mr-2" role="img" aria-label={`${skillCategory.title} icon`}>
@@ -125,8 +123,8 @@ export default function Home() {
         <section className="mb-16">
           <h2 className="section-heading">Work Experience</h2>
           <div className="space-y-6">
-            {jobs.map((job) => (
-              <div key={job.id} className="blueprint-card">
+            {jobs.map((job, index) => (
+              <div key={index} className="blueprint-card">
                 <div className="flex items-center mb-1">
                   <div className="relative w-10 h-10 mr-3 flex items-center justify-center">
                     {job.needsBackground && (
@@ -161,8 +159,8 @@ export default function Home() {
         <section className="mb-16">
           <h2 className="section-heading">Education</h2>
           <div className="space-y-6">
-            {education.map((edu) => (
-              <div key={edu.id} className="blueprint-card">
+            {education.map((edu, index) => (
+              <div key={index} className="blueprint-card">
                 <div className="flex items-center mb-1">
                   <div className="relative w-10 h-10 mr-3 flex items-center justify-center">
                     {edu.needsBackground && (
