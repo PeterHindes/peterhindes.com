@@ -357,3 +357,53 @@ svg.scribble-underline {
   height: auto !important;
   max-height: 15px;
 }
+
+/* Hand-drawn highlighter effect for name */
+.name-highlighter {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
+  color: var(--blueprint-text-color);
+}
+
+.name-highlighter::before {
+  content: '';
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  top: 30%;
+  bottom: -5px;
+  z-index: -1;
+  background-color: transparent;
+  border-radius: 2px;
+}
+
+/* Create a smooth SVG-like path using a gradient background */
+.name-highlighter::after {
+  content: '';
+  position: absolute;
+  left: -8px;
+  right: -8px;
+  height: 16px; /* Stroke width */
+  bottom: 5px;
+  z-index: -1;
+  background: rgba(255, 255, 0, 0.75); /* Brighter yellow */
+  border-radius: 3px;
+  transform-origin: center;
+  animation: highlighterVertical 2.5s ease-in-out infinite;
+}
+
+@keyframes highlighterVertical {
+  0% {
+    transform: translateY(0);
+    height: 16px;
+  }
+  50% {
+    transform: translateY(-2px);
+    height: 14px;
+  }
+  100% {
+    transform: translateY(0);
+    height: 16px;
+  }
+}
