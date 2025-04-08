@@ -44,6 +44,15 @@
       "image": "/images/projects/pencilsharpener.jpg",
       "tags": ["Python", "Image Processing", "PIL", "OpenCV"],
       "link": "https://github.com/PeterHindes/pencilSharpener"
+    },
+    {
+      "id": 6,
+      "title": "STM32 Tetris",
+      "description": "A touch screen Tetris game written in C with no operating system, for the STM32F4 Discovery board.",
+      "modelType": "stm32",
+      "image": "/images/projects/stmTetris.jpg",
+      "tags": ["STM32", "C", "Tetris", "Touch Screen", "SPI", "Object Oriented Design"],
+      "link": 
     }
   ],
   "jobs": [
