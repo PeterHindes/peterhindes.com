@@ -52,7 +52,7 @@
       "modelType": "stm32",
       "image": "/images/projects/stmTetris.jpg",
       "tags": ["STM32", "C", "Tetris", "Touch Screen", "SPI", "Object Oriented Design"],
-      "link": 
+      "link": "https://github.com/PeterHindes/stm32-discovery-tetris"
     }
   ],
   "jobs": [
