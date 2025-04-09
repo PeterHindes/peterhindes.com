@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="350" height="200" viewBox="0 0 350 200" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+  <!-- Business Card Background -->
+  <defs>
+    <!-- Blueprint Paper Pattern -->
+    <pattern id="blueprint-pattern" patternUnits="userSpaceOnUse" width="20" height="20">
+      <rect width="20" height="20" fill="#efeae0"/>
+      <!-- Major grid lines -->
+      <line x1="0" y1="0" x2="0" y2="20" stroke="rgba(40, 140, 70, 0.08)" stroke-width="0.5"/>
+      <line x1="0" y1="0" x2="20" y2="0" stroke="rgba(40, 140, 70, 0.08)" stroke-width="0.5"/>
+    </pattern>
+    
+    <!-- Torn Circle Mask for Profile Image -->
+    <mask id="torn-circle-mask">
+      <!-- Invert the mask and align it properly -->
+      <rect width="100" height="100" fill="black"/>
+      <path d="M50,0 C77.6,0 100,22.4 100,50 C100,77.6 77.6,100 50,100 C22.4,100 0,77.6 0,50 C0,22.4 22.4,0 50,0 Z" 
+            fill="white"
+            transform="translate(0,0) scale(1)"
+            filter="url(#torn-edge-filter)"/>
+    </mask>
+    
+    <!-- Torn Edge Filter -->
+    <filter id="torn-edge-filter" x="-20%" y="-20%" width="140%" height="140%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="3" seed="8" result="noise"/>
+      <feDisplacementMap in="SourceGraphic" in2="noise" scale="10" xChannelSelector="R" yChannelSelector="G"/>
+    </filter>
+    
+    <!-- Profile Image - Replace with base64 embedded image -->
+    <!-- 
+    To embed your image:
+    1. Convert your profile.jpg to base64
+    2. Replace the xlink:href value below with the data URI format:
+       xlink:href="data:image/jpeg;base64,YOUR_BASE64_DATA_HERE" 
+    -->
+    <image id="profile-image" xlink:href="data:image/jpeg;base64,YOUR_BASE64_DATA_HERE" 
+           width="100" height="100" preserveAspectRatio="xMidYMid slice"/>
+    
+    <!-- Icons for contact information -->
+    <symbol id="email-icon" viewBox="0 0 24 24">
+      <path d="M20,4H4C2.9,4,2,4.9,2,6v12c0,1.1,0.9,2,2,2h16c1.1,0,2-0.9,2-2V6C22,4.9,21.1,4,20,4z M20,8l-8,5l-8-5V6l8,5l8-5V8z" 
+            fill="#0e0e32"/>
+    </symbol>
+    
+    <symbol id="github-icon" viewBox="0 0 24 24">
+      <path d="M12,2C6.48,2,2,6.48,2,12c0,4.42,2.87,8.17,6.84,9.5c0.5,0.09,0.68-0.22,0.68-0.48c0-0.24-0.01-0.87-0.01-1.7c-2.78,0.6-3.37-1.34-3.37-1.34c-0.45-1.16-1.11-1.47-1.11-1.47c-0.91-0.62,0.07-0.61,0.07-0.61c1,0.07,1.53,1.03,1.53,1.03c0.89,1.53,2.34,1.09,2.91,0.83c0.09-0.65,0.35-1.09,0.63-1.34c-2.22-0.25-4.55-1.11-4.55-4.92c0-1.09,0.39-1.98,1.03-2.67c-0.1-0.25-0.45-1.28,0.1-2.67c0,0,0.84-0.27,2.75,1.02c0.8-0.22,1.65-0.33,2.5-0.33c0.85,0,1.7,0.11,2.5,0.33c1.91-1.29,2.75-1.02,2.75-1.02c0.55,1.39,0.2,2.42,0.1,2.67c0.64,0.7,1.03,1.58,1.03,2.67c0,3.82-2.34,4.66-4.57,4.91c0.36,0.31,0.68,0.92,0.68,1.85c0,1.34-0.01,2.42-0.01,2.75c0,0.27,0.18,0.58,0.69,0.48C19.14,20.16,22,16.42,22,12C22,6.48,17.52,2,12,2z" 
+            fill="#0e0e32"/>
+    </symbol>
+  </defs>
+  
+  <!-- Background with blueprint pattern -->
+  <rect width="100%" height="100%" fill="url(#blueprint-pattern)"/>
+  
+  <!-- Profile Image with torn paper effect - adjusted positioning -->
+  <g transform="translate(25, 25)">
+    <!-- Adjusted circle size and position -->
+    <circle cx="50" cy="50" r="50" fill="#1a1a1a" opacity="0.2"/> <!-- Drop shadow -->
+    <g mask="url(#torn-circle-mask)">
+      <use xlink:href="#profile-image" x="0" y="0"/>
+    </g>
+    <!-- Inner shadow effect -->
+    <circle cx="50" cy="50" r="50" fill="none" stroke="rgba(0,0,0,0.3)" stroke-width="5" opacity="0.5"/>
+  </g>
+  
+  <!-- Text Content - moved further right to avoid overlapping with image -->
+  <g transform="translate(120, 40)">
+    <!-- Name without highlighter effect -->
+    <g transform="translate(0, 20)">
+      <text font-family="'Permanent Marker', cursive" font-size="22" fill="#0e0e32" font-weight="bold">Peter Hindes</text>
+    </g>
+    
+    <!-- Tagline - adjusted position -->
+    <text font-family="'Pangolin', cursive" font-size="12" fill="#2c3e2e" y="45">Everything Developer, No Seriously!</text>
+    
+    <!-- Condensed Bio - adjusted spacing -->
+    <text font-family="'Pangolin', cursive" font-size="8" fill="#2c3e2e">
+      <tspan x="0" y="65">Electrical &amp; Computer Engineering + CS Student</tspan>
+      <tspan x="0" y="78">Web &amp; Embedded Game Developer</tspan>
+      <tspan x="0" y="91">Hardware, Software &amp; Tech Art Specialist</tspan>
+    </text>
+    
+    <!-- Contact Information - updated with icons -->
+    <g transform="translate(0, 110)">
+      <!-- Email button with icon -->
+      <rect x="0" y="0" width="170" height="22" fill="transparent" 
+            stroke="#0e0e32" stroke-width="1" rx="11" ry="11"/>
+      <use xlink:href="#email-icon" x="10" y="3" width="16" height="16"/>
+      <text font-family="'Pangolin', cursive" font-size="10" fill="#2c3e2e" x="32" y="15">contact@peterhindes.com</text>
+    </g>
+    
+    <g transform="translate(0, 135)">
+      <!-- GitHub button with icon -->
+      <rect x="0" y="0" width="170" height="22" fill="transparent" 
+            stroke="#0e0e32" stroke-width="1" rx="11" ry="11"/>
+      <use xlink:href="#github-icon" x="10" y="3" width="16" height="16"/>
+      <text font-family="'Pangolin', cursive" font-size="10" fill="#2c3e2e" x="32" y="15">GitHub/PeterHindes</text>
+    </g>
+  </g>
+  
+  <!-- Font references -->
+  <style type="text/css">
+    @import url('https://fonts.googleapis.com/css2?family=Permanent+Marker&amp;family=Pangolin&amp;display=swap');
+  </style>
+</svg>

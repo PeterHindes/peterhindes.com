@@ -126,16 +126,16 @@ h1, h2, h3, h4, h5, h6,
 }
 
 /* Image hover effect */
-.blueprint-card .object-cover {
+.blueprint-card .relative.h-60 .object-cover {
   transition: transform 0.3s ease-in-out;
 }
 
-.blueprint-card:hover .object-cover {
+.blueprint-card:hover .relative.h-60 .object-cover {
   transform: scale(1.05);
 }
 
-/* Inner shadow effect using pseudo-element */
-.blueprint-card .relative::after {
+/* Inner shadow effect using pseudo-element - only for project images (h-60 class) */
+.blueprint-card .relative.h-60::after {
   content: '';
   position: absolute;
   top: 0;
@@ -150,7 +150,7 @@ h1, h2, h3, h4, h5, h6,
   border-radius: inherit;
 }
 
-.blueprint-card:hover .relative::after {
+.blueprint-card:hover .relative.h-60::after {
   opacity: 1;
 }
 
@@ -291,6 +291,15 @@ blueprint-card .contact-button:hover {
   opacity: 0.15;
 }
 
+/* Custom class for job and education logos to prevent them from touching edges */
+.logo-container .object-contain {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain;
+  margin: 0;
+  padding: 10%;
+}
+
 @media (max-width: 768px) {
   .profile-container {
     width: 9rem;
@@ -322,7 +331,7 @@ svg.scribble-underline {
   max-height: 15px;
 }
 
-/* Hand-drawn highlighter effect for name */
+/* Hand-drawn highlighter effect for name
 .name-highlighter {
   position: relative;
   display: inline-block;
@@ -342,16 +351,15 @@ svg.scribble-underline {
   border-radius: 2px;
 }
 
-/* Create a smooth SVG-like path using a gradient background */
 .name-highlighter::after {
   content: '';
   position: absolute;
   left: -8px;
   right: -8px;
-  height: 16px; /* Stroke width */
+  height: 16px;
   bottom: 5px;
   z-index: -1;
-  background: rgba(255, 255, 0, 0.75); /* Brighter yellow */
+  background: rgba(255, 255, 0, 0.75);
   border-radius: 3px;
   transform-origin: center;
   animation: highlighterVertical 2.5s ease-in-out infinite;
@@ -370,4 +378,4 @@ svg.scribble-underline {
     transform: translateY(0);
     height: 16px;
   }
-}
+} */
