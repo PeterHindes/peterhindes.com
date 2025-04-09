@@ -28,8 +28,8 @@ export default function Home() {
             </div>
             <div className="text-center md:text-left flex-grow">
               <h1 className="text-4xl md:text-5xl font-bold mb-2 font-permanent-marker"><span className="name-highlighter">{about.name}</span></h1>
-              <p className="text-lg md:text-xl mb-4 font-pangolin">{about.tagline}</p>
-              <p className="max-w-2xl font-pangolin">{about.bio}</p>
+              <p className="tagline text-lg md:text-xl mb-4 font-pangolin">{about.tagline}</p>
+              <p className="bio max-w-2xl font-pangolin">{about.bio}</p>
               <div className="mt-4 flex gap-4 justify-center md:justify-start">
                 <a href={`mailto:${contact.email}`} className="contact-button flex items-center">
                   <span style={{ display: 'inline-flex', alignItems: 'center' }}>
