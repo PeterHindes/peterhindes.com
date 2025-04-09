@@ -35,7 +35,7 @@
   --font-headings: 'Permanent Marker', cursive;
 }
 
-/* Custom font classes that directly use the font names */
+/* Custom font classes */
 .font-permanent-marker {
   font-family: 'Permanent Marker', cursive !important;
 }
@@ -44,35 +44,13 @@
   font-family: 'Pangolin', cursive !important;
 }
 
-/* Font debug classes */
-.font-debug-marker {
-  font-family: 'Permanent Marker', cursive !important;
-}
-
-.font-debug-pangolin {
-  font-family: 'Pangolin', cursive !important;
-}
-
 /* Increase all fonts by 15% */
 html {
-  font-size: 115%; /* Increase base font size by 15% */
+  font-size: 115%;
 }
 
-/* Base styles with stronger specificity */
+/* Base styles */
 body {
-  background: var(--site-bg);
-  color: var(--site-text);
-  font-family: 'Pangolin', cursive !important;
-}
-
-h1, h2, h3, h4, h5, h6,
-.section-heading {
-  font-family: 'Permanent Marker', cursive !important;
-  letter-spacing: 0.01em;
-}
-
-/* Blueprint Paper Background */
-.blueprint-bg {
   background-color: var(--blueprint-bg);
   background-image: 
     linear-gradient(var(--blueprint-grid-major) 1px, transparent 1px),
@@ -81,10 +59,205 @@ h1, h2, h3, h4, h5, h6,
     linear-gradient(90deg, var(--blueprint-grid-minor) 1px, transparent 1px);
   background-size: 100px 100px, 100px 100px, 20px 20px, 20px 20px;
   background-position: -1px -1px, -1px -1px, -1px -1px, -1px -1px;
+  color: var(--site-text);
+  font-family: 'Pangolin', cursive !important;
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+body::before {
+  display: none;
+}
+
+h1, h2, h3, h4, h5, h6,
+.section-heading {
+  font-family: 'Permanent Marker', cursive !important;
+  letter-spacing: 0.01em;
+}
+
+/* Main layout components */
+.portfolio-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.portfolio-header {
+  margin-bottom: 2rem;
+}
+
+.header-container {
+  background-color: transparent;
+  color: var(--blueprint-text-color);
+  padding: 2rem;
+}
+
+/* About Section */
+.about-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .about-section {
+    flex-direction: row;
+    align-items: flex-start;
+  }
+}
+
+.about-content {
+  flex: 1;
+}
+
+.profile-name {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.profile-tagline {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.profile-bio {
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+  width: 90%;
+}
+
+.name-highlighter {
+  position: relative;
+  display: inline-block;
+  z-index: 1;
   color: var(--blueprint-text-color);
 }
 
-/* Section Headings */
+/* Profile Image */
+.profile-image-container {
+  position: relative;
+  margin: 1rem auto;
+  width: 12rem;
+  height: 12rem;
+  border-radius: 50%;
+  mask-image: url('/torn-circle-mask.svg');
+  mask-size: contain;
+  -webkit-mask-image: url('/torn-circle-mask.svg');
+  -webkit-mask-size: contain;
+  filter: blur(0.2px);
+  image-rendering: optimizeQuality;
+  overflow: hidden;
+}
+
+.profile-image-container:hover {
+  filter: none;
+}
+
+.profile-content {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  transition: transform 0.3s ease;
+  border-radius: 50%;
+}
+
+.profile-image-container:hover .profile-content {
+  transform: rotate(3deg) scale(1.05);
+}
+
+.profile-image-container::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: 
+    inset 0 0 20px 10px rgba(0,0,0,0.5),
+    inset 0 0 5px 2px rgba(0,0,0,0.7);
+  border-radius: 50%;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.8;
+  transition: opacity 0.3s ease;
+  mix-blend-mode: multiply;
+}
+
+.profile-image-container:hover::before {
+  opacity: 0.3;
+}
+
+.profile-image-container::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.3);
+  z-index: 10;
+  pointer-events: none;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.profile-image-container:hover::after {
+  opacity: 0.15;
+}
+
+.profile-image-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.profile-image {
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+/* Contact Links */
+.contact-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.contact-button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--blueprint-text-color);
+  border-radius: calc(var(--card-border-radius) / 2);
+  color: var(--blueprint-text-color);
+  font-weight: 500;
+  transition: all 0.2s;
+  text-decoration: none;
+}
+
+.contact-button:hover {
+  background-color: var(--blueprint-text-color);
+  color: var(--blueprint-bg);
+}
+
+.button-content {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact-icon {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
+/* Main content */
+.portfolio-main {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+/* Section Headers */
 .section-heading {
   font-size: 1.875rem;
   font-weight: 700;
@@ -98,12 +271,18 @@ h1, h2, h3, h4, h5, h6,
   background-size: 100% 15px;
 }
 
-.bio {
-  width: 90%;
+/* Projects Section */
+.projects-section {
+  margin-bottom: 2rem;
 }
 
-/* Cards */
-.blueprint-card {
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
   background-color: var(--primary-80);
   border: 1px solid var(--transparency-20);
   border-radius: var(--card-border-radius);
@@ -116,29 +295,29 @@ h1, h2, h3, h4, h5, h6,
   flex-direction: column;
 }
 
-/* Card hover effect - exterior shadow */
-.blueprint-card:hover {
+.project-card:hover {
   transform: translateY(-4px);
   box-shadow: 6px 6px 12px var(--shadow-medium);
 }
 
-/* Image container with relative positioning */
-.blueprint-card .relative {
-  overflow: hidden;
+.project-image-container {
   position: relative;
+  height: 15rem;
+  overflow: hidden;
+  border-radius: calc(var(--card-border-radius) / 2);
+  margin-bottom: 1rem;
 }
 
-/* Image hover effect */
-.blueprint-card .relative.h-60 .object-cover {
+.project-image {
   transition: transform 0.3s ease-in-out;
+  object-fit: cover;
 }
 
-.blueprint-card:hover .relative.h-60 .object-cover {
+.project-card:hover .project-image {
   transform: scale(1.05);
 }
 
-/* Inner shadow effect using pseudo-element - only for project images (h-60 class) */
-.blueprint-card .relative.h-60::after {
+.project-image-container::after {
   content: '';
   position: absolute;
   top: 0;
@@ -153,20 +332,29 @@ h1, h2, h3, h4, h5, h6,
   border-radius: inherit;
 }
 
-.blueprint-card:hover .relative.h-60::after {
+.project-card:hover .project-image-container::after {
   opacity: 1;
 }
 
-.blueprint-card h3, .blueprint-card h4 {
+.project-title {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
   color: var(--card-text-color);
 }
 
-.blueprint-card > .mt-auto {
-  margin-top: auto;
+.project-description {
+  margin-bottom: 1rem;
+  flex-grow: 1;
 }
 
-/* Tags */
-.blueprint-tag {
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+
+.project-tag {
   font-size: 0.75rem;
   background-color: var(--primary-60);
   color: var(--card-text-color);
@@ -175,8 +363,12 @@ h1, h2, h3, h4, h5, h6,
   border: 1px solid var(--transparency-20);
 }
 
-/* Links and Buttons */
-.blueprint-link {
+.project-link-container {
+  margin-top: auto;
+}
+
+.project-link {
+  display: inline-block;
   color: var(--card-text-color);
   font-weight: 600;
   text-decoration: none;
@@ -186,149 +378,328 @@ h1, h2, h3, h4, h5, h6,
   transition: background-color 0.2s;
 }
 
-.blueprint-link:hover {
+.project-link:hover {
   background-color: var(--transparency-20);
 }
 
-.contact-button {
-  display: inline-block;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--blueprint-text-color);
-  border-radius: calc(var(--card-border-radius) / 2);
-  color: var(--blueprint-text-color);
-  font-weight: 500;
-  transition: all 0.2s;
+/* Skills Section */
+.skills-section {
+  margin-bottom: 2rem;
 }
 
-.contact-button:hover {
-  background-color: var(--blueprint-text-color);
-  color: var(--blueprint-bg);
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
 }
 
-/* Card-specific button styles */
-.blueprint-card .contact-button {
-  border: 1px solid var(--card-text-color);
+.skill-card {
+  background-color: var(--primary-80);
+  border: 1px solid var(--transparency-20);
+  border-radius: var(--card-border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow-light);
   color: var(--card-text-color);
 }
 
-blueprint-card .contact-button:hover {
-  background-color: var(--card-text-color);
-  color: var(--blueprint-bg);
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
 }
 
-/* Profile container with torn paper effect - enhanced antialiasing */
-.profile-container {
+.skill-emoji {
+  font-size: 1.5rem;
+}
+
+.skill-title {
+  font-size: 1.25rem;
+  color: var(--card-text-color);
+}
+
+.skill-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.skill-tag {
+  font-size: 0.75rem;
+  background-color: var(--primary-60);
+  color: var(--card-text-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: calc(var(--card-border-radius) / 3);
+  border: 1px solid var(--transparency-20);
+}
+
+/* Experience Section */
+.experience-section {
+  margin-bottom: 2rem;
+}
+
+.experience-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.job-card {
+  background-color: var(--primary-80);
+  border: 1px solid var(--transparency-20);
+  border-radius: var(--card-border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow-light);
+  color: var(--card-text-color);
+}
+
+.job-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.job-logo-container {
   position: relative;
-  margin: 1rem auto;
-  width: 12rem;
-  height: 12rem;
+  width: 3.75rem;
+  height: 3.75rem;
   border-radius: 50%;
-  /* Apply the torn paper mask to the container with improved antialiasing */
-  mask-image: url('/torn-circle-mask.svg');
-  mask-size: contain;
-  -webkit-mask-image: url('/torn-circle-mask.svg');
-  -webkit-mask-size: contain;
-  
-  /* Add a very slight blur for smoother edges */
-  filter: blur(0.2px);
-  /* Counteract the blur with a slight sharpening */
-  image-rendering: optimizeQuality;
-  
   overflow: hidden;
+  background-color: white;
+  flex-shrink: 0;
 }
 
-/* Remove the slight blur when hovering to maintain image quality */
-.profile-container:hover {
-  filter: none;
+.job-logo-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 1;
 }
 
-/* Inner content that rotates */
-.profile-container .profile-content {
-  width: 100%;
-  height: 100%;
+.job-logo {
   position: relative;
-  transition: transform 0.3s ease;
-  border-radius: 50%;
-}
-
-/* The inner content rotates on hover */
-.profile-container:hover .profile-content {
-  transform: rotate(3deg) scale(1.05);
-}
-
-/* Create a more pronounced inset shadow - this stays fixed */
-.profile-container::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  box-shadow: 
-    inset 0 0 20px 10px rgba(0,0,0,0.5),
-    inset 0 0 5px 2px rgba(0,0,0,0.7);
-  border-radius: 50%;
-  z-index: 20; /* Make sure it's above the image */
-  pointer-events: none;
-  opacity: 0.8;
-  transition: opacity 0.3s ease;
-  mix-blend-mode: multiply; /* Helps the shadow blend with the image */
-}
-
-/* Make the shadow fainter on hover */
-.profile-container:hover::before {
-  opacity: 0.3;
-}
-
-/* Create a more subtle inset shadow */
-.profile-container::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  box-shadow: inset 0 0 10px 3px rgba(0,0,0,0.3);
-  z-index: 10;
-  pointer-events: none;
-  opacity: 1;
-  transition: opacity 0.3s ease;
-}
-
-/* Make the shadow even fainter on hover */
-.profile-container:hover::after {
-  opacity: 0.15;
-}
-
-/* Custom class for job and education logos to prevent them from touching edges */
-.logo-container .object-contain {
-  width: 100% !important;
-  height: 100% !important;
-  object-fit: contain;
-  margin: 0;
+  z-index: 2;
   padding: 10%;
+  object-fit: contain;
 }
 
-@media (max-width: 768px) {
-  .profile-container {
-    width: 9rem;
-    height: 9rem;
-  }
+.job-title {
+  font-size: 1.25rem;
+  color: var(--card-text-color);
+}
+
+.job-company {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.job-description {
+  margin-bottom: 1rem;
+}
+
+.job-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-tag {
+  font-size: 0.75rem;
+  background-color: var(--primary-60);
+  color: var(--card-text-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: calc(var(--card-border-radius) / 3);
+  border: 1px solid var(--transparency-20);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.job-period {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* Education Section */
+.education-section {
+  margin-bottom: 2rem;
+}
+
+.education-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.education-card {
+  background-color: var(--primary-80);
+  border: 1px solid var(--transparency-20);
+  border-radius: var(--card-border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 4px 6px var(--shadow-light);
+  color: var(--card-text-color);
+}
+
+.education-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-logo-container {
+  position: relative;
+  width: 3.75rem;
+  height: 3.75rem;
+  border-radius: 50%;
+  overflow: hidden;
+  background-color: white;
+  flex-shrink: 0;
+}
+
+.education-logo-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: white;
+  z-index: 1;
+}
+
+.education-logo {
+  position: relative;
+  z-index: 2;
+  padding: 10%;
+  object-fit: contain;
+}
+
+.education-degree {
+  font-size: 1.25rem;
+  color: var(--card-text-color);
+}
+
+.education-school {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-description {
+  margin-bottom: 1rem;
+}
+
+.coursework-container {
+  margin-bottom: 1rem;
+}
+
+.coursework-title {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.coursework-list {
+  list-style: disc;
+  padding-left: 1.5rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 0.25rem 1rem;
+}
+
+.coursework-item {
+  font-size: 0.875rem;
+}
+
+.education-footer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.education-tag {
+  font-size: 0.75rem;
+  background-color: var(--primary-60);
+  color: var(--card-text-color);
+  padding: 0.25rem 0.5rem;
+  border-radius: calc(var(--card-border-radius) / 3);
+  border: 1px solid var(--transparency-20);
+  margin-right: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.education-period {
+  font-size: 0.875rem;
+  opacity: 0.8;
+}
+
+/* Footer */
+.portfolio-footer {
+  margin-top: 3rem;
+  text-align: center;
+  padding: 1.5rem;
+  color: var(--site-text);
+  opacity: 0.7;
 }
 
 /* Responsive adjustments */
+@media (max-width: 768px) {
+  .profile-image-container {
+    width: 9rem;
+    height: 9rem;
+  }
+  
+  .profile-bio {
+    width: 100%;
+    max-width: 95%;
+  }
+  
+  .contact-links {
+    flex-direction: column;
+    width: 100%;
+  }
+  
+  .contact-button {
+    width: 100%;
+    text-align: center;
+  }
+  
+  .coursework-list {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 640px) {
   html {
-    font-size: 105%; /* Slightly smaller base font size on mobile */
+    font-size: 105%;
   }
   
   .section-heading {
-    padding-bottom: 12px; /* Smaller padding for mobile */
-    background-size: 100% 12px; /* Smaller scribble for mobile */
+    padding-bottom: 12px;
+    background-size: 100% 12px;
   }
   
-  /* Make project cards full width on mobile */
-  .blueprint-card {
+  .profile-bio {
+    max-width: 90%;
+  }
+  
+  .project-card,
+  .skill-card {
     width: 100%;
   }
 
-  .blueprint-link::after {
+  .project-link::after {
     content: "\A";
     white-space: pre;
+  }
+  
+  .job-header,
+  .education-header {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
 
@@ -338,52 +709,3 @@ svg.scribble-underline {
   height: auto !important;
   max-height: 15px;
 }
-
-/* Hand-drawn highlighter effect for name
-.name-highlighter {
-  position: relative;
-  display: inline-block;
-  z-index: 1;
-  color: var(--blueprint-text-color);
-}
-
-.name-highlighter::before {
-  content: '';
-  position: absolute;
-  left: -8px;
-  right: -8px;
-  top: 30%;
-  bottom: -5px;
-  z-index: -1;
-  background-color: transparent;
-  border-radius: 2px;
-}
-
-.name-highlighter::after {
-  content: '';
-  position: absolute;
-  left: -8px;
-  right: -8px;
-  height: 16px;
-  bottom: 5px;
-  z-index: -1;
-  background: rgba(255, 255, 0, 0.75);
-  border-radius: 3px;
-  transform-origin: center;
-  animation: highlighterVertical 2.5s ease-in-out infinite;
-}
-
-@keyframes highlighterVertical {
-  0% {
-    transform: translateY(0);
-    height: 16px;
-  }
-  50% {
-    transform: translateY(-2px);
-    height: 14px;
-  }
-  100% {
-    transform: translateY(0);
-    height: 16px;
-  }
-} */
