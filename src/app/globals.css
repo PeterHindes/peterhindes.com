@@ -325,6 +325,11 @@ blueprint-card .contact-button:hover {
   .blueprint-card {
     width: 100%;
   }
+
+  .blueprint-link::after {
+    content: "\A";
+    white-space: pre;
+  }
 }
 
 /* Ensure SVGs are responsive */
